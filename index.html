@@ -11,9 +11,14 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
 
-  <link rel="stylesheet" href="./assets/css/style.css" />
+  <!-- Use relative links for CDN-hosted jQuery and jQuery UI -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="style.css" />
+
   <title>Task Board</title>
+
 </head>
+
 
 <body>
   <header class="p-4 mb-4 text-center border-bottom border-5">
@@ -22,9 +27,31 @@
   </header>
   <div class="container">
     <div class="text-center mb-5">
-      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addTaskModal">Add 2 Task</button>
     </div>
+
+    <button onclick="openAddTaskModal()">Add 3 Task</button>
+
     <!-- Todo: Create a modal with a form to add tasks -->
+    <div id="addTaskModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Add New Task</h2>
+        <form id="taskForm">
+          <label for="taskTitle">Title:</label>
+          <input type="text" id="taskTitle" name="taskTitle" required>
+    
+          <label for="taskDescription">Description:</label>
+          <textarea id="taskDescription" name="taskDescription" required></textarea>
+    
+          <label for="taskDeadline">Deadline:</label>
+          <input type="date" id="taskDeadline" name="taskDeadline" required>
+    
+          <button type="button" onclick="handleAddTask()">Save</button>
+        </form>
+      </div>
+    </div>
+
     <div class="row swim-lanes text-center justify-content-between">
       <div class="col-12 col-lg-4 d-flex">
         <div id="to-do" class="card border-light mb-3 lane flex-grow-1">
@@ -67,7 +94,13 @@
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
 
-  <script src="./assets/js/script.js"></script>
+  <script src="A1script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+<script>dayjs().format()</script>
+
+
 </body>
 
+  </div>
+</div>
 </html>
